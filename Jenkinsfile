@@ -3,12 +3,12 @@ pipeline {
 		stages {                 
 			stage('Prepare') {                         
 				steps {                                 
-					echo 'Preparing..'
+					echo "Preparing"
 				}                 
 			}                 
 			stage('Build') {                         
 				steps {                                 
-					echo 'Building..'                         
+					sh "docker run "                        
 				}                 
 			}                 
 			stage('Test') {                         
