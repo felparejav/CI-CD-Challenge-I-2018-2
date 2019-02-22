@@ -12,12 +12,13 @@ pipeline {
 			}                 
 			stage('Build') {                         
 				steps {
-					sh "docker build -t challenge ." 						               	                      
+					sh "docker rmi -f challenge " 
+					sh "docker build -t challenge ."											               	                      
 				}                 
 			}                 
 			stage('Test') {                         
 				steps {                                 
-					sh 'docker run challenge npm node test'                        
+					sh 'docker run challenge npm test'                        
 				}                 
 			}
 			stage('push') {
