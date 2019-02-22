@@ -8,7 +8,7 @@ pipeline {
 			}                 
 			stage('Build') {                         
 				steps {
-					sh "sudo docker build -t challenge" 						               	                      
+					sh "docker build -t challenge" 						               	                      
 				}                 
 			}                 
 			stage('Test') {                         
