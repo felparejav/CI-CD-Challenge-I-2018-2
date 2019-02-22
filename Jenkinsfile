@@ -18,13 +18,16 @@ pipeline {
 			}
 			stage('push') {
 				steps {
-					echo 'docker login -u Docker_User -p Docker_Password'
-					echo 'docker push felparejav/cicdchallenge:test2'
+					sh '''
+					   	docker login -u Docker_User -p Docker_Password
+						docker push felparejav/cicdchallenge:test
+
+						'''
 				}
 			}                 
 			stage('Deploy') {                         
 				steps {                                 
-					echo 'Deploying....'                                     					
+					echo 'Ya casi'                                     					
 				}                 
 			}         
 		} 
