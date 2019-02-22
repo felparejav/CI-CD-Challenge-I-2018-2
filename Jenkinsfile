@@ -3,8 +3,8 @@ pipeline {
 	agent any 
 	environment{
 		
-		Docker_User = 'dockerhub_user'
-		Docker_Password = 'dockerhub_pass'
+		Docker_User = credentials('dockerhub_user')
+		Docker_Password = credentials('dockerhub_pass')
 	}         
 		stages {                 
 			stage('Prepare') {                         
