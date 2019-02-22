@@ -18,11 +18,7 @@ pipeline {
 			}
 			stage('push') {
 				steps {
-					sh '''
-					   	docker login -u Docker_User -p Docker_Password
-						docker push felparejav/cicdchallenge:test
-
-						'''
+					sh 'docker push felparejav/cicdchallenge:test'
 				}
 			}                 
 			stage('Deploy') {                         
