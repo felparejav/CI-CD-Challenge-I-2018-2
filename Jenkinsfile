@@ -1,8 +1,5 @@
 pipeline {
-	environment{
-		registry = "felparejav/cicdchallenge"
-		registryCredential = 'dockerhub'
-	} 
+
 	agent any         
 		stages {                 
 			stage('Prepare') {                         
