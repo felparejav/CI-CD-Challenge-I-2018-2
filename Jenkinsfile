@@ -8,7 +8,7 @@ pipeline {
 			}                 
 			stage('Build') {                         
 				steps {
-					sh "docker tag challengefelparejav/cicdchallenge:test" 						               	                      
+					sh "docker tag challenge felparejav/cicdchallenge:test" 						               	                      
 				}                 
 			}                 
 			stage('Test') {                         
