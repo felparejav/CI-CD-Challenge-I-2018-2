@@ -20,13 +20,14 @@ pipeline {
 			}                 
 			stage('Test') {                         
 				steps {                                 
-					sh 'docker run challenge npm test'                        
+					sh 'docker run challenge npm test'
+					echo ''                        
 				}                 
 			}
 			stage('push') {
 				steps {
 					sh '''
-						docker login -u Docker_User -p Docker_Password
+						docker login -u $Docker_User -p $Docker_Password
 						docker tag challenge felparejav/cicdchallenge:test2
 						docker push felparejav/cicdchallenge:test2
 						'''
