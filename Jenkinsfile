@@ -1,7 +1,8 @@
 pipeline {
 	environment{
-		registry = "felparejav/cicdchallenge"
-		registryCredential = 'dockerhub'
+		
+		Docker_User = 'docker_user'
+		Docker_Password = 'docker_pass'
 	} 
 	agent any         
 		stages {                 
@@ -24,6 +25,7 @@ pipeline {
 			stage('push') {
 				steps {
 					sh '''
+						docker login -u Docker_User -p Docker_Password
 						docker tag challenge felparejav/cicdchallenge:test2
 						docker push felparejav/cicdchallenge:test2
 						'''
