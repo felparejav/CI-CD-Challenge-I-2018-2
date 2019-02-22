@@ -7,8 +7,8 @@ pipeline {
 				}                 
 			}                 
 			stage('Build') {                         
-				steps {                                 
-					sh "docker run "                        
+				steps {
+					sh "sudo docker build -t challenge" 						               	                      
 				}                 
 			}                 
 			stage('Test') {                         
