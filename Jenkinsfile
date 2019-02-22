@@ -8,7 +8,7 @@ pipeline {
 			}                 
 			stage('Build') {                         
 				steps {
-					sh "docker tag challenge felparejav/cicdchallenge:test" 						               	                      
+					sh "docker build challenge -t felparejav/cicdchallenge:test" 						               	                      
 				}                 
 			}                 
 			stage('Test') {                         
@@ -18,7 +18,11 @@ pipeline {
 			}
 			stage('push') {
 				steps {
-					sh 'docker push felparejav/cicdchallenge:test'
+					sh '''
+					   	docker login -u Docker_User -p Docker_Password
+						docker push felparejav/cicdchallenge:test
+
+						'''
 				}
 			}                 
 			stage('Deploy') {                         
