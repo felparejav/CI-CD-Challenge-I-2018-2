@@ -6,7 +6,7 @@ pipeline {
 		Docker_User = credentials('dockerhub_user')
 		Docker_Password = credentials('dockerhub_pass')
 		Ver = "${env.BUILD_ID}"
-		Name = "${env.BRANCH_NAME}"
+		Name = "${env.BUILD_DISPLAY_NAME}"
 		
 	}         
 		stages {                 
