@@ -10,7 +10,7 @@ pipeline {
 		stages {                 
 			stage('Prepare') {                         
 				steps {                                 
-					echo "${V}"
+					echo "${env.BUILD_ID}"
 				}                 
 			}                 
 			stage('Build') {                         
@@ -38,7 +38,7 @@ pipeline {
 				steps {                                 
 					input ("Seguro perro ?")
 					sh'''
-						docker kill $(docker ps -q)
+						docker rmi $(docker images -q)
 						docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:${env.BUILD_ID}
 						'''                                     					
 				}                 
