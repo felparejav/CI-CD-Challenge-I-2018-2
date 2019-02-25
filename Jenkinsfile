@@ -39,7 +39,7 @@ pipeline {
 				steps {                                 
 					input ("Seguro perro ?")
 					sh'''
-						docker rmi $(docker images -q)
+						docker kill ${docker ps -q}
 						docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:${Ver}
 						'''                                     					
 				}                 
