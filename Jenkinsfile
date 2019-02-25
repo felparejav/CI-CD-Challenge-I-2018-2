@@ -5,13 +5,13 @@ pipeline {
 		
 		Docker_User = credentials('dockerhub_user')
 		Docker_Password = credentials('dockerhub_pass')
-		V = ${env.BUILD_ID}
+		V = "${env.BUILD_ID}"
 		
 	}         
 		stages {                 
 			stage('Prepare') {                         
 				steps {                                 
-					echo "V"
+					echo "$V"
 				}                 
 			}                 
 			stage('Build') {                         
