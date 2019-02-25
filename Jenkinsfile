@@ -10,7 +10,7 @@ pipeline {
 		stages {                 
 			stage('Prepare') {                         
 				steps {                                 
-					echo "${env.BUILD_ID}"
+					echo "\${env.BUILD_ID}"
 				}                 
 			}                 
 			stage('Build') {                         
