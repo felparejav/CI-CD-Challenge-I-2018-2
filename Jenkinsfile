@@ -5,11 +5,12 @@ pipeline {
 		
 		Docker_User = credentials('dockerhub_user')
 		Docker_Password = credentials('dockerhub_pass')
+		V = "$(env.BUILD_ID)"
 	}         
 		stages {                 
 			stage('Prepare') {                         
 				steps {                                 
-					echo "Preparing"
+					echo "$(V)"
 				}                 
 			}                 
 			stage('Build') {                         
@@ -28,8 +29,8 @@ pipeline {
 				steps {
 					sh '''
 						docker login -u $Docker_User -p $Docker_Password
-						docker tag challenge felparejav/cicdchallenge:test2
-						docker push felparejav/cicdchallenge:test2
+						docker tag challenge felparejav/cicdchallenge:$V
+						docker push felparejav/cicdchallenge:$V
 						'''
 				}
 			}                 
@@ -37,7 +38,8 @@ pipeline {
 				steps {                                 
 					input ("Seguro perro ?")
 					sh'''
-						docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:test2
+						docker kill $(docker ps -q)
+						docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:$V
 						'''                                     					
 				}                 
 			}         
