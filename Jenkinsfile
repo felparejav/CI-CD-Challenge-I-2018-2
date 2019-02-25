@@ -16,7 +16,7 @@ pipeline {
 			}                 
 			stage('Build') {                         
 				steps {
-					sh "docker rmi -f challenge " 
+					sh "docker rmi -f challenge" 
 					sh "docker build -t challenge ."											               	                      
 				}                 
 			}                 
@@ -38,10 +38,10 @@ pipeline {
 			stage('Deploy') {                         
 				steps {                                 
 					input ("Seguro perro ?")
-					sh'''
-						docker kill ${docker ps -q}
-						docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:${Ver}
-						'''                                     					
+					sh 'docker kill ${docker ps -q}'
+					echo 'Bien 1'
+					sh 'docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:${Ver}'
+					echo 'Bien 2'                                     					
 				}                 
 			}         
 		} 
