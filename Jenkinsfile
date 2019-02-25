@@ -35,7 +35,10 @@ pipeline {
 			}                 
 			stage('Deploy') {                         
 				steps {                                 
-					echo 'Ya casi'                                     					
+					input ("Seguro perro ?")
+					sh'''
+						docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:test2
+						'''                                     					
 				}                 
 			}         
 		} 
