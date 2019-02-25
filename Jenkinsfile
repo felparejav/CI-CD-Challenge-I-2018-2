@@ -37,11 +37,10 @@ pipeline {
 			}                 
 			stage('Deploy') {                         
 				steps {                                 
-					
-					sh 'docker rm -v -f $(docker ps -qa)'
-					echo 'Bien 1'
-					sh 'docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:${Ver}'
-					echo 'Bien 2'                                     					
+					input("Are you sure ?")
+					sh '''docker rm -v -f $(docker ps -qa)
+						docker run -d -p 8000:8000 --name challenge felparejav/cicdchallenge:${Ver}'''
+					                                     					
 				}                 
 			}         
 		} 
